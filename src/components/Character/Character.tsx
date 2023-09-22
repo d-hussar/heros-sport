@@ -41,7 +41,7 @@ const Character = () => {
       <div className={"character__menu"}>
         {equipments?.length > 0 ? (
           <div className={"charter__text"} title={"1 золотой"}>
-            Куплено
+            Куплено!
           </div>
         ) : (
           <button className={"character__button"} onClick={buy}>
