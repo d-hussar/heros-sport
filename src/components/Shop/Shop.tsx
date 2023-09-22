@@ -9,7 +9,7 @@ const Shop = () => {
   );
   const { equipments } = character;
 
-  const [_, setUpdate] = useState(false);
+  const [_, setUpdate] = useState<any>([]);
 
   const buy = (item) => () => {
     localStorage.setItem(
@@ -19,8 +19,9 @@ const Shop = () => {
         equipments: [...character.equipments, item],
       }),
     );
-    setUpdate(true);
+    setUpdate([...character.equipments, item]);
   };
+  console.log("render", equipments);
 
   return (
     <div className="shop__board">

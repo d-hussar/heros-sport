@@ -18,13 +18,13 @@ const Character = () => {
           alt={""}
           className={"charcter-window__avatar"}
         />
-        {equipments?.length > 0 ? (
+        {equipments.map((item) => (
           <img
-            src={equipment[equipments[0]]}
+            src={equipment[item]}
             alt={""}
             className={"charcter-window__avatar"}
           />
-        ) : null}
+        ))}
       </div>
     </div>
   );
