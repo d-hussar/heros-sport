@@ -5,8 +5,18 @@ import { createHashRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
 
 import SignIn from "./components/SignIn";
+import Shop from "./components/Shop";
 import Character from "./components/Character";
 import CharacterCreator from "./components/CharacterCreator";
+
+const Game = () => (
+  <App>
+    <div className="main">
+      <Shop />
+      <Character />
+    </div>
+  </App>
+);
 
 const router = createHashRouter([
   {
@@ -27,11 +37,7 @@ const router = createHashRouter([
   },
   {
     path: "/main",
-    element: (
-      <App>
-        <Character />
-      </App>
-    ),
+    element: <Game />,
   },
 ]);
 
