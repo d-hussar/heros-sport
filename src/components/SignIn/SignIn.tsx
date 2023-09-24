@@ -1,21 +1,23 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useUser } from "../UserProvider";
 import "./SignIn.styles.css";
 
 const SignIn = () => {
   const [login, setLogin] = useState("");
-  const loginStore = localStorage.getItem("login") as string;
+
   const navigate = useNavigate();
+  const { userId, setUserId } = useUser();
 
   const onChange = ({ target: { value } }) => {
     setLogin(value);
   };
   const onSubmit = () => {
-    if (JSON.parse(loginStore) === login) {
+    if (userId === login) {
       navigate("/main");
     } else {
-      localStorage.setItem("login", JSON.stringify(login));
+      setUserId(login);
       navigate("/create");
     }
   };

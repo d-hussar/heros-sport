@@ -1,15 +1,13 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useUser } from "../UserProvider";
 import { characters } from "./data";
 import "./CharacterCreator.styles.css";
 
 const CharacterCreator = () => {
-  const login = localStorage.getItem("login") as string;
-  const character = localStorage.getItem(JSON.parse(login)) as string;
-  const [characterId, setCharacterId] = useState(
-    JSON.parse(character)?.characterId || 0,
-  );
+  const { character, setCharacter } = useUser();
+  const [characterId, setCharacterId] = useState(character?.characterId || 0);
   const navigate = useNavigate();
 
   const getPreview = () => {
@@ -28,13 +26,7 @@ const CharacterCreator = () => {
   };
 
   const save = () => {
-    localStorage.setItem(
-      JSON.parse(login),
-      JSON.stringify({
-        characterId,
-        equipments: [],
-      }),
-    );
+    setCharacter(characterId);
     navigate("/main");
   };
   const cancel = () => {

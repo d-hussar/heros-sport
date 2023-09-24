@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import { createHashRouter, RouterProvider } from "react-router-dom";
 
 import App from "./App";
+import UserProvider from "./components/UserProvider";
 
 import SignIn from "./components/SignIn";
 import Shop from "./components/Shop";
@@ -10,30 +11,20 @@ import Character from "./components/Character";
 import CharacterCreator from "./components/CharacterCreator";
 
 const Game = () => (
-  <App>
-    <div className="main">
-      <Shop />
-      <Character />
-    </div>
-  </App>
+  <div className="main">
+    <Shop />
+    <Character />
+  </div>
 );
 
 const router = createHashRouter([
   {
     path: "/",
-    element: (
-      <App>
-        <SignIn />
-      </App>
-    ),
+    element: <SignIn />,
   },
   {
     path: "/create",
-    element: (
-      <App>
-        <CharacterCreator />
-      </App>
-    ),
+    element: <CharacterCreator />,
   },
   {
     path: "/main",
@@ -42,4 +33,10 @@ const router = createHashRouter([
 ]);
 
 const rootElement = document.getElementById("root") as any;
-ReactDOM.createRoot(rootElement).render(<RouterProvider router={router} />);
+ReactDOM.createRoot(rootElement).render(
+  <App>
+    <UserProvider>
+      <RouterProvider router={router} />
+    </UserProvider>
+  </App>,
+);

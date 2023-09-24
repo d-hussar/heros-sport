@@ -1,27 +1,18 @@
 import React, { useState } from "react";
+import { useUser } from "../UserProvider";
 import "./Shop.styles.css";
 import { shopItems } from "./data";
 
 const Shop = () => {
-  const login = localStorage.getItem("login") as string;
-  const character = JSON.parse(
-    localStorage.getItem(JSON.parse(login)) as string,
-  );
+  const { character, setEquipments } = useUser();
   const { equipments } = character;
 
   const [_, setUpdate] = useState<any>([]);
 
   const buy = (item) => () => {
-    localStorage.setItem(
-      JSON.parse(login),
-      JSON.stringify({
-        ...character,
-        equipments: [...character.equipments, item],
-      }),
-    );
-    setUpdate([...character.equipments, item]);
+    setEquipments(item);
+    setUpdate([...character?.equipments, item]);
   };
-  console.log("render", equipments);
 
   return (
     <div className="shop__board">

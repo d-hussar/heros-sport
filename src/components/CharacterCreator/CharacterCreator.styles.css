@@ -53,3 +53,30 @@
 .character-window__control--right:hover {
   background-image: url("https://lh3.googleusercontent.com/fife/AKsag4NU8khCm-Fqw8SeUxSf-lO8JzYTN87cpomOdR-0MwdZHmRI13c0MBiYU4nfafo1weKWbkGQNstGY5D99SJp_Kuov4G-F5NTR9WeobEyDxYpAjpIE9nGiUfTTwdq_RKR1KJMfvb93fQxvSJE_YiPwfQXhOU2Culs8GbIPFijhZxx-hglHyID8xDwuAS1rxSSO3iCYg7YUGQcWGmBMGVpBqcN6y-cbCP7NtBEABufbUCweIMNqJuNlnV1tWc33fQt-MVjlZQRZcksnlllrp9MMASo7SdDC5Ubbt71OsBSNNuXQD5dKpuywHXIajwS6uegIdF4yP7oo1S7W80chyKKpw5_cGPNGfiU_-qkU82V7fsTTvo2B0Q-rn3YrZuYKeAMybWUr-0joshokwTP8XFrCW8s23I44QKLMwdsInOu7iGJFb827nOufzWrymTtJxnZKQSt-TmdPtiyFoEVnDXn59DgvvTCmuB12Q4CXuRszUrMmQ64ZaNnyv-AZK2KDYJlklTV0YK6BFwhycHOZMrwaIfPaFoXhIGntXO7VvprqMzAIboVfzwruYgRVkY-CvpQAMgZJdWAvW3-cUUUt2rS1QZLtRpCNjfMXIrW9QwfRIzDZMm2tWS4POex_QPTA8AzEUizlThdrFrrexkxqxg30D1Rf2gKei6Nfdix0Ga5_JrUvznK3l4Yhk87v1N2e_-Fp6rkJ2_MAzqfG5I91Xro2nw5VNQ_3obd0Rd_Vtb60S3AVdSMB6GoT1FbrWm12b2kyLYpW6zJlwKJ2WG9JSkGQNVkJ5y9ZeHHYJBdn0iP1bLnSAZkfGjoQS0eGPVH-a2HRygbhdZCMCiAh6lwkFlxBfrcX1Aa8lFl2-G0HyNXUD2xTYbpBpaLQeJ_iIYvSChLlNMoCl6Of2IST0YUl1TvnauTc2QW60qTpg8SZn_8rY3itQH2qWZplF3uQ0Tc3E4xAZwnl6B1cBWqwyopDvPvggtaLkQS3cQ5VsWSUhY3yYjJOU4lWoPq9PGc1aWbupUhCEdVefdHs3ZcJaKRM9M1EmKdbRAWx2dY8hZsRDLImucgDDSytWV-O6FURD8zHVp5LcGZAZannFi3jznHf9qEd_7VjY2hHQkd5NSTbkurEpuXN8slBbzeGRy3xZHHkO0yim-FlEpwg5k9B4uwgRP7ZwKD_lCQ8r9kHiWITmba6cSXJB2-p_s-C9ePcVZ_WaDrixlQWj33pVEL3KIv5tcS723jk3D1WlL6TsZYp5FhSFClxXSl4q3ycYmGDnAxD-4Ibif0YGffCdf_u1QknvqNsrVkKWFz-JMGGjWM_fBClR3gNsFOjYvTco0qWllCztpg7WVefwYTEYI8lKgO6J-q0kC1fCOEWCfZ5BnXp5l0NrCJGrvSUnwKtPXRWFq9xFnyJ2jOuk9MxiMjnBjqKBd8AiYNg55vK7NHcgiEmOLKPYjAmr-8QL52HUTcmdou9pmtJsXvARtPuF4LcYMYVBS0lvwtWM6nqAnw4C6_NprSCtC3KeQL0PZSH1x4_hSUziBughAruW98WVEtunW6-5Y8yQc=w1388-h980");
 }
+
+.character__menu {
+  display: flex;
+  justify-content: space-between;
+
+  width: calc(176px * var(--ration));
+  margin-top: 24px;
+}
+
+.character__button {
+  width: 150px;
+  height: 40px;
+  margin: 0 20px;
+  line-height: 40px;
+
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #985ace;
+
+  border: none;
+  border-radius: 7px;
+  background-color: #ffffff;
+
+  cursor: pointer;
+}
