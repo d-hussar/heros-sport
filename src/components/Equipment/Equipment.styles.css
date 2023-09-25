@@ -1,0 +1,15 @@
+.equipment-window {
+  position: relative;
+
+  width: calc(176px * var(--ration));
+  height: calc(242px * var(--ration));
+}
+
+.equipment-window__item {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  width: calc(160px * var(--ration));
+  height: calc(242px * var(--ration));
+}

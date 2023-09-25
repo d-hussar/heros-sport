@@ -1,7 +1,8 @@
-import React from "react";
-import { characters } from "../CharacterCreator/data";
-import { equipment } from "./data";
-import { useUser } from "../UserProvider";
+import React from 'react';
+import { characters } from '../CharacterCreator/data';
+import { equipment } from './data';
+import { useUser } from '../UserProvider';
+import Equipment from '../Equipment';
 
 const Character = () => {
   const { character } = useUser();
@@ -9,19 +10,13 @@ const Character = () => {
 
   return (
     <div>
-      <div className={"character-window"}>
+      <div className={'character-window'}>
         <img
           src={characters[characterId]}
-          alt={""}
-          className={"charcter-window__avatar"}
+          alt={''}
+          className={'charcter-window__avatar'}
         />
-        {equipments.map((item) => (
-          <img
-            src={equipment[item]}
-            alt={""}
-            className={"charcter-window__avatar"}
-          />
-        ))}
+        <Equipment items={equipments} />
       </div>
     </div>
   );

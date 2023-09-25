@@ -1,11 +1,11 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useState } from 'react';
 
 const UserContext = createContext({} as any);
 
 export const useUser = () => useContext(UserContext);
 
 const UserProvider = ({ children }) => {
-  const login = localStorage.getItem("login");
+  const login = localStorage.getItem('login');
   const [userId, setUserId] = useState(
     JSON.parse(login as string) || undefined,
   );
@@ -16,32 +16,72 @@ const UserProvider = ({ children }) => {
 
   const setLogin = (login) => {
     setUserId(login);
-    localStorage.setItem("login", JSON.stringify(login));
+    localStorage.setItem('login', JSON.stringify(login));
   };
   const setPlayer = (characterId) => {
     localStorage.setItem(
       JSON.stringify(userId),
       JSON.stringify({
         characterId,
-        equipments: [],
+        equipments: {
+          primary: {
+            legs: null,
+            breast: null,
+            shoulders: null,
+            hands: null,
+            head: null,
+            weapon: null,
+            shield: null,
+          },
+          secondary: {
+            shoulders: null,
+            hands: null,
+          },
+        },
       }),
     );
     setCharacter({
       characterId,
-      equipments: [],
+      equipments: {
+        primary: {
+          legs: null,
+          breast: null,
+          shoulders: null,
+          hands: null,
+          head: null,
+          weapon: null,
+          shield: null,
+        },
+        secondary: {
+          shoulders: null,
+          hands: null,
+        },
+      },
     });
   };
-  const setEquipments = (item) => {
+  const setEquipments = (item, type) => {
+    const items = {
+      ...character.equipments,
+    };
+    if (type !== 'shield') {
+      items.primary[type] = item;
+    }
+    if (type === 'hands' || type === 'shoulders' || type === 'shield') {
+      console.log(type, item);
+      items.secondary[type] = item;
+    }
+    console.log(items);
+
     localStorage.setItem(
       JSON.stringify(userId),
       JSON.stringify({
         ...character,
-        equipments: [...character.equipments, item],
+        equipments: items,
       }),
     );
     setCharacter({
       ...character,
-      equipments: [...character.equipments, item],
+      equipments: items,
     });
   };
 
