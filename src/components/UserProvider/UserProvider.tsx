@@ -38,6 +38,7 @@ const UserProvider = ({ children }) => {
             hands: null,
           },
         },
+        money: 0,
       }),
     );
     setCharacter({
@@ -57,6 +58,7 @@ const UserProvider = ({ children }) => {
           hands: null,
         },
       },
+      money: 0,
     });
   };
   const setEquipments = (item, type) => {
@@ -70,7 +72,6 @@ const UserProvider = ({ children }) => {
       console.log(type, item);
       items.secondary[type] = item;
     }
-    console.log(items);
 
     localStorage.setItem(
       JSON.stringify(userId),
@@ -84,6 +85,19 @@ const UserProvider = ({ children }) => {
       equipments: items,
     });
   };
+  const updateMoney = (value) => {
+    localStorage.setItem(
+      JSON.stringify(userId),
+      JSON.stringify({
+        ...character,
+        money: character.money + Number(value),
+      }),
+    );
+    setCharacter({
+      ...character,
+      money: character.money + Number(value),
+    });
+  };
 
   return (
     <UserContext.Provider
@@ -93,6 +107,7 @@ const UserProvider = ({ children }) => {
         character,
         setCharacter: setPlayer,
         setEquipments,
+        updateMoney,
       }}
     >
       {children}

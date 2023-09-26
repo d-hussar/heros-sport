@@ -1,38 +1,42 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import { createHashRouter, RouterProvider } from "react-router-dom";
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { createHashRouter, RouterProvider } from 'react-router-dom';
 
-import App from "./App";
-import UserProvider from "./components/UserProvider";
+import App from './App';
+import UserProvider from './components/UserProvider';
 
-import SignIn from "./components/SignIn";
-import Shop from "./components/Shop";
-import Character from "./components/Character";
-import CharacterCreator from "./components/CharacterCreator";
+import SignIn from './components/SignIn';
+import Shop from './components/Shop';
+import Inventory from './components/Inventory';
+import Character from './components/Character';
+import CharacterCreator from './components/CharacterCreator';
 
 const Game = () => (
-  <div className="main">
-    <Shop />
-    <Character />
+  <div>
+    <div className="main">
+      <Shop />
+      <Character />
+    </div>
+    <Inventory />
   </div>
 );
 
 const router = createHashRouter([
   {
-    path: "/",
+    path: '/',
     element: <SignIn />,
   },
   {
-    path: "/create",
+    path: '/create',
     element: <CharacterCreator />,
   },
   {
-    path: "/main",
+    path: '/main',
     element: <Game />,
   },
 ]);
 
-const rootElement = document.getElementById("root") as any;
+const rootElement = document.getElementById('root') as any;
 ReactDOM.createRoot(rootElement).render(
   <App>
     <UserProvider>
